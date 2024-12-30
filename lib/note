@@ -1,0 +1,165 @@
+FROM: https://flutter-tutorial.net/
+
+What is an API?
+An API, or Application Programming Interface,
+is a set of rules for building and interacting with
+software applications. It defines the methods and
+data formats for requesting and exchanging information
+between different software programs, enabling them to
+communicate and share functionalities efficiently.
+
+What is REST API?
+A REST API, or Representational State Transfer API,
+is a type of API that adheres to the REST architectural style.
+It uses HTTP requests to access and use data, with the
+operations including GET, POST, PUT, and DELETE.
+
+Principles of REST
+1. Client-server architecture: Separation of client and
+server functionalities to improve portability and
+scalability of the application.
+2. Stateless: Each request from the client to the
+server must contain all the information the server
+needs to understand and complete the request.
+3. Cacheable: Responses must define themselves as cacheable
+or not to prevent clients from reusing stale or inappropriate data.
+4. Uniform interface: Simplifies and decouples the architecture,
+which enables each part to evolve independently.
+5. Layered system: The client cannot tell whether it is
+connected directly to the end server or to an intermediary.
+6. Code on demand (optional): Servers can temporarily extend
+or customize the functionality of a client by transferring
+executable code.
+
+How Do REST APIs Work?
+When a client requires data or functionality, it sends a
+request to the server using a URL. The server processes the
+request, and then sends back a response. This response includes
+a status line indicating success or failure and the requested
+resource in the format specified by the request.
+
+Components of a RESTful API Request
+1. Resource identifier (URL): Uniquely identifies the resource
+being requested.
+2. HTTP Method: Defines the operation to be performed
+(GET, POST, PUT, DELETE, etc.).
+3. Headers: Provide metadata for the HTTP request,
+including content type, authentication, etc.
+4. Body (optional): Contains data sent with the request
+(for POST, PUT methods).
+
+
+Benefits of RESTful APIs
+1.  Scalability: Efficient client-server interactions and
+stateless operations facilitate scalability.
+2. Flexibility and Independence: The separation of client
+and server, along with the stateless nature of requests,
+allows various parts of an application to evolve independently.
+3. Widespread Use: Given its efficiency, simplicity, and
+support across programming languages, REST APIs are widely
+used for web services, including social media platforms,
+mobile applications, and IoT devices.
+
+
+HTTP Status Codes
+Here are some common HTTP status codes and their meanings:
+
+1. 200 OK: The request was successful.
+2. 201 Created: The request has been fulfilled and resulted
+in a new resource being created.
+3. 400 Bad Request: The server cannot process the request due
+to a client error.
+4. 401 Unauthorized: The request has not been applied because
+it lacks valid authentication credentials.
+5. 404 Not Found: The server cannot find the requested resource.
+6. 500 Internal Server Error: The server encountered an unexpected
+condition that prevented it from fulfilling the request.
+
+
+INTRODUCTION TO JSON
+JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+Mostly it is used to transfer data between computers.
+
+Characteristics of JSON
+1. Lightweight: JSON is designed to be easy to use and quick to interpret,
+making it ideal for data interchange.
+2. Self-describing: JSON structures are clear and understandable,
+making it easy to read and write.
+3. Language Independent: Although derived from JavaScript, JSON is
+language-independent, with many programming languages providing support
+for parsing and generating JSON data.
+
+NOTE:
+JSON files have a .json extension.
+
+Use Cases of JSON
+1. App and Web Development: JSON is extensively used in app and web development
+for transferring data between a server and a client.
+2. APIs and Web Services: Many web services and APIs exchange data using JSON
+format due to its straightforward and efficient structure.
+
+JSON Data Types
+JSON supports various data types, including:
+1. String: A sequence of characters wrapped in quotes.
+2. Number: Numeric data (integer or floating point).
+3. Boolean: Represents a truth value (true or false).
+4. Null: Represents a null value.
+5. Array: An ordered list of values, enclosed in square brackets [].
+6. Object: A collection of key-value pairs, enclosed in curly braces {}.
+
+JSON Syntax Rules
+Data is in name/value pairs.
+Curly braces {} hold objects, while square brackets [] hold arrays.
+Data is separated by commas, and each name in an object is followed
+by a colon : which precedes the value.
+
+Example of JSON Data:
+
+{
+  "name": "John Doe",
+  "age": 30,
+  "isEmployed": true,
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown"
+  },
+  "phoneNumbers": ["123-456-7890", "456-789-0123"]
+}
+Why the Distinction, usin {} for Address and [] for Phone Number?
+Address: A map is used because an address typically has labeled components
+(street, city, etc.), and maps provide clarity and easy access to each part.
+Phone Numbers: A list is used because phone numbers are just a collection of
+values, and there's no inherent need to associate them with keys
+(unless labeled, e.g., "home" and "work").
+
+
+JSON vs. XML
+JSON and XML are both used for data interchange, but JSON is generally
+preferred due to its simpler syntax, faster parsing, and lighter data format.
+
+Parsing JSON with Dart
+To parse JSON in Dart, you can use the jsonDecode function from the
+dart:convert package.
+
+Example of Parsing JSON in Dart:
+
+import 'dart:convert';
+
+void main() {
+  String jsonString = '''
+  {
+    "name": "John Doe",
+    "age": 30,
+    "isEmployed": true
+  }
+  ''';
+
+  var decodedJson = jsonDecode(jsonString);
+
+  print('Name: ${decodedJson['name']}');
+  print('Age: ${decodedJson['age']}');
+  print('Is Employed: ${decodedJson['isEmployed']}');
+}
+
+NOTE: Dart’s jsonDecode function returns a Map<String, dynamic>,
+allowing for easy access to JSON properties.
